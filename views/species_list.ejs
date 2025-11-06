@@ -1,0 +1,19 @@
+<%- include("head_partial.ejs") %>
+<main>
+  <h1><%= title %></h1>
+  <ul>
+    <% species.fishes.forEach(function(fish){ %>
+      <li>
+        <strong><%= fish.name %></strong><br/>
+        <small><%= fish.description %></small><br/>
+        <em>Środowisko: <%= fish.habitat %></em>
+      </li>
+    <% }) %>
+  </ul>
+  <div>
+    <h3>Dodaj nową rybę</h3>
+    <%- include("forms/new_fish.ejs") %>
+  </div>
+</main>
+
+<%- include("foot_partial.ejs") %>

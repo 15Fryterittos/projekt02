@@ -1,0 +1,18 @@
+<form action="/fish/<%= species.id %>/new" method="POST">
+  <div>
+    <label for="fish_name">Nazwa</label>
+    <input type="text" name="name" id="fish_name" required minlength="1" maxlength="500"
+      <% if (locals.name){ %> value="<%= name %>" <% } %> />
+  </div>
+  <div>
+    <label for="fish_desc">Opis</label>
+    <input type="text" name="description" id="fish_desc" required minlength="1" maxlength="500"
+      <% if (locals.description){ %> value="<%= description %>" <% } %> />
+  </div>
+  <div>
+    <label for="fish_habitat">Środowisko</label>
+    <input type="text" name="habitat" id="fish_habitat" required minlength="1" maxlength="500"
+      <% if (locals.habitat){ %> value="<%= habitat %>" <% } %> />
+  </div>
+  <button>Dodaj</button>
+</form>

@@ -1,0 +1,12 @@
+<%- include("head_partial.ejs") %>
+
+<main>
+  <h1><%= title %></h1>
+  <ul>
+    <% species.forEach(function(s){ %>
+      <li><a href="/fish/<%= s.id %>"><%= s.name %></a></li>
+    <% }) %>
+  </ul>
+</main>
+
+<%- include("foot_partial.ejs") %>
