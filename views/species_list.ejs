@@ -1,16 +1,28 @@
 <%- include("head_partial.ejs") %>
+
 <main>
   <h1><%= title %></h1>
-  <ul>
+
+  <ul class="fish-list">
     <% species.fishes.forEach(function(fish){ %>
-      <li>
+      <li class="fish-item">
         <strong><%= fish.name %></strong><br/>
         <small><%= fish.description %></small><br/>
         <em>Środowisko: <%= fish.habitat %></em>
+
+        <form
+          action="/fish/<%= species.id %>/delete/<%= fish.id %>"
+          method="POST"
+          onsubmit="return confirm('Na pewno chcesz usunąć tę rybę?');"
+          style="display:inline"
+        >
+          <button type="submit" class="delete-btn">Usuń</button>
+        </form>
       </li>
     <% }) %>
   </ul>
-  <div>
+
+  <div class="new-fish-form">
     <h3>Dodaj nową rybę</h3>
     <%- include("forms/new_fish.ejs") %>
   </div>

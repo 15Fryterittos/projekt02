@@ -92,6 +92,11 @@ export function validateFishData(fish) {
   return errors;
 }
 
+export function deleteFish(fishId) {
+  const stmt = db.prepare("DELETE FROM fishes WHERE id = ?;");
+  return stmt.run(fishId);
+}
+
 export default {
   getSpeciesSummaries,
   getSpecies,
@@ -99,4 +104,5 @@ export default {
   addSpecies,
   addFish,
   validateFishData,
+  deleteFish,
 };

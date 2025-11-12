@@ -45,6 +45,17 @@ app.post("/fish/:species_id/new", (req, res) => {
   }
 });
 
+app.post("/fish/:species_id/delete/:fish_id", (req, res) => {
+  const { species_id, fish_id } = req.params;
+
+  if (!fishy.hasSpecies(species_id)) {
+    return res.sendStatus(404);
+  }
+
+  fishy.deleteFish(fish_id);
+  res.redirect(`/fish/${species_id}`);
+}); 
+
 app.listen(port, () => {
   console.log(`Serwer działa: http://localhost:${port}`);
 });
